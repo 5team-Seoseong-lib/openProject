@@ -10,81 +10,68 @@ import java.awt.event.*;
 //  @ Project : IT독서실예약시스템
 //  @ File Name : LoginScreen.java
 //  @ Date : 2021-12-10
-//  @ Author : 김나현
 //
 //
+
+/**
+ * IT독서실 예약 시스템의 로그인 화면이 나타나는 클래스이다.
+ * 이용자가 아이디와 패스워드를 입력한다.
+ * 로그인 성공 시 "You have logged in successfully"가 뜬다.
+ * 로그인 실패 시 "You failed to login"이 뜬다.
+ * @author: 김나현
+ * @version: 1.0
+ */
 
 
 public class LoginScreen extends JFrame {
-	String id = "Rewind";
-    String pass = "1234";
-	
+	String id = "Rewind";	//유효 ID
+	String pass = "1234";	//유효 PW
+
 	public LoginScreen() {
-	JPanel panel = new JPanel();
-	JLabel label = new JLabel("ID : ");
-	JLabel pswrd = new JLabel("PassWord : ");
-	JTextField txtID = new JTextField(10);
-	JPasswordField txtPass = new JPasswordField(10);
-	JButton logBtn = new JButton("Log in");
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel("ID : ");		//ID 레이블 생성
+		JLabel pswrd = new JLabel("PassWord : ");	//PW 레이블 생성
+		JTextField txtID = new JTextField(10);	//ID 필드 생성
+		JPasswordField txtPass = new JPasswordField(10);	//PW 필드 생성
+		JButton logBtn = new JButton("Login");	//Login 버튼 생성
 	
-	panel.add(label);
-    panel.add(txtID);
-    panel.add(pswrd);
-    panel.add(txtPass);
-    panel.add(logBtn);
-    
-    logBtn.addActionListener( new ActionListener() {
+		panel.add(label);	//ID 레이블 삽입
+	    panel.add(txtID);	//ID 필드 삽입
+	    panel.add(pswrd);	//PW 레이블 삽입
+	    panel.add(txtPass);	//PW 필드 삽입
+	    panel.add(logBtn);	//Login 버튼 삽입
+
+	    //로그인 검사
+	    logBtn.addActionListener( new ActionListener() {
     	 
-        
-        public void actionPerformed(ActionEvent e) {
+	    	public void actionPerformed(ActionEvent e) {
+	
+	    		
+	                
+	    		String input_id= txtID.getText();
+	    		String input_pw =txtPass.getText();
+	            
+	    		//ID, PW 유효성 검사
+	    		LoginCtrl lc=new LoginCtrl();
+	                
+	    		if( lc.checkverify(id, pass, input_id, input_pw)==true) {
+	    			JOptionPane.showMessageDialog( null, "you have logged in successfully" );
+	    		}
+	    		else if(lc.checkverify(id, pass, input_id, input_pw)==false) {
+	    			JOptionPane.showMessageDialog( null , " you failed to log in ");
+	    		}
+	    	}
+	    } );
 
-                
-                
-                String input_id= txtID.getText();
-                String input_pw =txtPass.getText();
-                
-               LoginCtrl lc=new LoginCtrl();
-                
-                if( lc.checkverify(id, pass, input_id, input_pw)==true) {
-                	JOptionPane.showMessageDialog( null, "you have logged in successfully" );
-                }
-                else if(lc.checkverify(id, pass, input_id, input_pw)==false) {
-                	JOptionPane.showMessageDialog( null , " you failed to log in ");
-                }
-
-
-
-
-
-
-        }
-
-
-
-} );
-
-
-
-
-add(panel);
-
-
-setVisible(true);
-
-setSize( 350 , 200);
-
-setLocationRelativeTo(null);
-
-setResizable(false);
-
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	    add(panel);
+		setVisible(true);	//화면에 보이게 설정
+		setSize( 350 , 200);	//프레임 사이즈
+		setLocationRelativeTo(null);	//화면 가운데 배치
+		setResizable(false);	//창 크기 고정
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//프로세스 종료
 }
-	
-	
-
-	 public static void main(String[] args) {
-	      new LoginScreen();
-	 
-	  }
+	private void login() {	}
+	public static void main(String[] args) {
+		new LoginScreen();
+		}
 }

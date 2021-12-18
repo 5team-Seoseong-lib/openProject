@@ -19,6 +19,17 @@ import java.awt.event.*;
 //
 //
 
+/**
+ * IT독서실 예약 시스템의 로그인 처리를 하는 클래스이다.
+ * 입력 받은 ID와 PW의 유효성을 검사한다.
+ * @Param id 로그인 아이디
+ * @Param pass 로그인 패스워드
+ * @Param input_id 입력받은 아이디
+ * @Param input_pw 입력받은 패스워드
+ * @return: 일치하면 true, 불일치하면 false 리턴
+ * @author: 이태희
+ * @version: 1.0
+ */
 
 
 
