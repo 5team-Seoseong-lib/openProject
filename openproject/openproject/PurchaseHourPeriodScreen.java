@@ -73,6 +73,7 @@ public class PurchaseHourPeriodScreen extends JFrame {
 	jb.setText("좌석 결제"); // 하단의 "좌석 결제" 버튼 추가
 	
 	
+	
 	ps.add(jb);
 	jb.setForeground(Color.WHITE);
 	jb.setBackground(new Color(93,162,229));
